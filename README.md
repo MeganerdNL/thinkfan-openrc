@@ -11,7 +11,7 @@ OpenRC init file for [thinkfan](https://github.com/vmatare/thinkfan).
 - `yay -S thinkfan-openrc` - or with your own favorite AUR helper.
 - Create a file */etc/thinkfan.conf*. Example is in: */usr/share/doc/thinkfan/examples/thinkfan.yaml*
 - Add the service to default runlevel with `rc-update add thinkfan`
-- Start the service with `rc-service thiknfan start`
+- Start the service with `rc-service thinkfan start`
 #### Manual
 - Place the file *thinkfan* from this repository in */etc/init.d* and make it executeable: `chmod +x thinkfan`.
 - Create a file */etc/thinkfan.conf*. Example is in: */usr/share/doc/thinkfan/examples/thinkfan.yaml*
