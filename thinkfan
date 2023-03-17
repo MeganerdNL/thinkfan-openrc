@@ -1,0 +1,19 @@
+#!/usr/bin/openrc-run
+# Copyright 2023 MeganerdNL
+# Distributed under the terms of the MIT License
+
+description="thinkfan - A minimalist fan control program. Supports the sysfs hwmon interface and thinkpad_acpi"
+supervisor="supervise-daemon"
+command="/usr/bin/thinkfan"
+pidfile="/run/supervise-${RC_SVCNAME}.pid"
+extra_started_commands="reload"
+
+depend() {
+    after modules
+}
+
+reload() {
+        ebegin "Reloading ${SVCNAME}"
+        start-stop-daemon --signal HUP --pidfile "${pidfile}"
+        eend $?
+}
