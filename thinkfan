@@ -3,9 +3,11 @@
 # Distributed under the terms of the MIT License
 
 description="thinkfan - A minimalist fan control program. Supports the sysfs hwmon interface and thinkpad_acpi"
+supervisor="supervise-daemon"
 command="/usr/bin/thinkfan"
 command_args="-q"
-pidfile="/run/thinkfan.pid"
+command_args_foreground="-n"
+pidfile="/run/supervice-${RC_SVCNAME}.pid"
 extra_started_commands="reload"
 required_files="/etc/thinkfan.conf"
 
@@ -15,6 +17,6 @@ depend() {
 
 reload() {
         ebegin "Reloading ${SVCNAME}"
-        start-stop-daemon --signal HUP --pidfile "${pidfile}"
+        ${supervisor} ${RC_SVCNAME} --signal HUP --pidfile "${pidfile}"
         eend $?
 }
