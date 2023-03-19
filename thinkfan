@@ -28,6 +28,6 @@ start_pre() {
 
 reload() {
         ebegin "Reloading ${SVCNAME}"
-        ${supervisor} ${RC_SVCNAME} --signal HUP --pidfile "${pidfile}"
+        ${supervisor} ${RC_SVCNAME} --signal HUP
         eend $?
 }
