@@ -7,12 +7,23 @@ supervisor="supervise-daemon"
 command="/usr/bin/thinkfan"
 command_args="-q"
 command_args_foreground="-n"
-pidfile="/run/supervice-${RC_SVCNAME}.pid"
 extra_started_commands="reload"
-required_files="/etc/thinkfan.conf"
 
 depend() {
     after modules
+}
+
+start_pre() {
+        if [ -f /etc/thinkfan.yaml ] ; then
+                return 0
+        elif [ -f /etc/thinkfan.conf ] ; then
+                return 0
+        else
+                eerror "No /etc/thinkfan.yaml or /etc/thinkfan.conf. Please create one."
+                eerror "An example is in /usr/share/doc/thinkfan/examples/thinkfan.yaml."
+                eerror "Copy this file to /etc/thinkfan.conf (or /etc/thinkfan.yaml) and modify to taste."
+                return 1
+        fi
 }
 
 reload() {
