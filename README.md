@@ -3,7 +3,7 @@ OpenRC init file for [thinkfan](https://github.com/vmatare/thinkfan).
 
 ## Prerequisites / Dependencies:
 - A ThinkPad running linux with OpenRC as init system.
-- Fancontrol enabled in *thinkpad_acpi* module. This is autmatically enabled when thinkfan is installed.
+- Fancontrol enabled in *thinkpad_acpi* module. This is automatically enabled when thinkfan is installed.
 - [thinkfan](https://github.com/vmatare/thinkfan) installed - You can install it [from the AUR](https://aur.archlinux.org/packages/thinkfan) if you use (an) Arch (based distribution).
 
 ## Installation:
